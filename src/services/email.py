@@ -235,9 +235,18 @@ class EmailManager:
                     msg.attach(text_part)
                     msg.attach(html_part)
 
+                    # 计算邮件大小（字节数）
+                    msg_bytes = msg.as_bytes()
+                    msg_size_kb = len(msg_bytes) / 1024
+                    self.console.print(f"[cyan][EMAIL DEBUG][/cyan]   📏 邮件大小: {msg_size_kb:.1f} KB")
+                    if msg_size_kb > 5120:
+                        self.console.print("[red][EMAIL DEBUG][/red]   ⚠️  邮件超过 5MB，163 可能会拒收！")
+                    elif msg_size_kb > 1024:
+                        self.console.print("[yellow][EMAIL DEBUG][/yellow]   ⚠️  邮件超过 1MB，部分邮箱可能拦截")
+
                     try:
                         server.send_message(msg)
-                        logger.info(f"Sent summary to {subscriber}")
+                        logger.info(f"Sent summary to {subscriber} ({msg_size_kb:.1f} KB)")
                         self.console.print(f"[green][EMAIL DEBUG][/green]   ✅ 已发送给 {subscriber}")
                     except Exception as e:
                         logger.error(f"Failed to send to {subscriber}: {e}")
@@ -255,6 +264,13 @@ class EmailManager:
         except Exception as e:
             self.console.print(f"[red][EMAIL DEBUG][/red]   ❌ 未知错误: {e}")
             logger.error(f"SMTP Error: {e}")
+        else:
+            # try 块无异常时执行
+            self.console.print("[cyan][EMAIL DEBUG][/cyan]   ✅ 所有邮件发送完毕")
+            self.console.print("[cyan][EMAIL DEBUG][/cyan]   💡 如果收件箱未收到，请检查：")
+            self.console.print("[cyan][EMAIL DEBUG][/cyan]      1. 登录 163 网页邮箱 → 自助查询 → 收信查询 → 查看是否被拦截")
+            self.console.print("[cyan][EMAIL DEBUG][/cyan]      2. 检查垃圾邮件箱")
+            self.console.print("[cyan][EMAIL DEBUG][/cyan]      3. 将发件地址加入白名单")
 
     def _send_reply(self, to_email: str, subject: str, body: str):
         """Helper to send a simple reply."""
