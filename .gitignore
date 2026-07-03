@@ -41,6 +41,7 @@ data/config.json
 data/seen.json
 data/summaries/*.md
 # data/subscribers.json 已跟踪，用于 GitHub Actions 持久的订阅者列表
+AGENTS.md
 data/mcp.secrets.json
 data/mcp-secrets.json
 data/mcp-runs/
