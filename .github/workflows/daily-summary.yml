@@ -10,6 +10,8 @@ on:
 jobs:
   daily-summary:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     permissions:
       contents: write  # Needed to commit changes
 
@@ -23,7 +25,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v8
+        uses: astral-sh/setup-uv@v7
 
       - name: Install dependencies
         run: uv sync
