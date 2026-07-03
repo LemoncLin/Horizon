@@ -165,8 +165,25 @@ class EmailManager:
 
     def send_daily_summary(self, summary_md: str, subject: str, subscribers: List[str]):
         """Sends the daily summary to all subscribers."""
-        if not self.config.enabled or not subscribers:
+        self.console.print("[cyan][EMAIL DEBUG][/cyan] send_daily_summary() 被调用")
+        self.console.print(f"[cyan][EMAIL DEBUG][/cyan]   config.enabled = {self.config.enabled}")
+        self.console.print(f"[cyan][EMAIL DEBUG][/cyan]   subscribers ({len(subscribers)}): {subscribers}")
+        self.console.print(f"[cyan][EMAIL DEBUG][/cyan]   subject = {subject}")
+        self.console.print(f"[cyan][EMAIL DEBUG][/cyan]   smtp_server = {self.config.smtp_server}:{self.config.smtp_port}")
+        self.console.print(f"[cyan][EMAIL DEBUG][/cyan]   email_address = {self.config.email_address}")
+        self.console.print(f"[cyan][EMAIL DEBUG][/cyan]   smtp_username = {self.config.smtp_username}")
+        self.console.print(f"[cyan][EMAIL DEBUG][/cyan]   password_env = {self.config.password_env}")
+        self.console.print(f"[cyan][EMAIL DEBUG][/cyan]   password 已设置 = {bool(self.pwd)}")
+
+        if not self.config.enabled:
+            self.console.print("[yellow][EMAIL DEBUG][/yellow]   ⏭ config.enabled=False，跳过发送")
             return
+        if not subscribers:
+            self.console.print("[yellow][EMAIL DEBUG][/yellow]   ⏭ subscribers 列表为空，跳过发送")
+            self.console.print("[yellow][EMAIL DEBUG][/yellow]   💡 提示：请确保 data/subscribers.json 中存在订阅邮箱，或通过 IMAP 订阅流程添加")
+            return
+
+        self.console.print(f"[cyan][EMAIL DEBUG][/cyan]   ✅ 条件满足，开始发送...")
 
         cleaned_summary = clean_app_summary_markdown(summary_md)
         safe_summary = html.escape(cleaned_summary)
@@ -201,7 +218,9 @@ class EmailManager:
         """
 
         try:
+            self.console.print(f"[cyan][EMAIL DEBUG][/cyan]   正在连接 SMTP {self.config.smtp_server}:{self.config.smtp_port} ...")
             with self._create_smtp_connection() as server:
+                self.console.print(f"[green][EMAIL DEBUG][/green]   ✅ SMTP 连接成功")
                 for subscriber in subscribers:
                     msg = MIMEMultipart("alternative")
                     msg["Subject"] = subject
@@ -219,10 +238,22 @@ class EmailManager:
                     try:
                         server.send_message(msg)
                         logger.info(f"Sent summary to {subscriber}")
+                        self.console.print(f"[green][EMAIL DEBUG][/green]   ✅ 已发送给 {subscriber}")
                     except Exception as e:
                         logger.error(f"Failed to send to {subscriber}: {e}")
+                        self.console.print(f"[red][EMAIL DEBUG][/red]   ❌ 发送给 {subscriber} 失败: {e}")
 
+        except smtplib.SMTPAuthenticationError:
+            self.console.print("[red][EMAIL DEBUG][/red]   ❌ SMTP 认证失败 — 请检查 EMAIL_PASSWORD（163 授权码）是否正确")
+            logger.error("SMTP Authentication failed")
+        except smtplib.SMTPServerDisconnected:
+            self.console.print("[red][EMAIL DEBUG][/red]   ❌ SMTP 服务器断开连接 — 可能是 163 拦截了本次连接")
+            logger.error("SMTP server disconnected")
+        except smtplib.SMTPException as e:
+            self.console.print(f"[red][EMAIL DEBUG][/red]   ❌ SMTP 异常: {e}")
+            logger.error(f"SMTP Error: {e}")
         except Exception as e:
+            self.console.print(f"[red][EMAIL DEBUG][/red]   ❌ 未知错误: {e}")
             logger.error(f"SMTP Error: {e}")
 
     def _send_reply(self, to_email: str, subject: str, body: str):

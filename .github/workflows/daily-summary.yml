@@ -6,6 +6,15 @@ on:
     # this intentionally runs early to offset the observed schedule delay.
     - cron: '0 20 * * *'
   workflow_dispatch:      # Allow manual trigger
+    inputs:
+      mode:
+        description: '运行模式'
+        required: true
+        default: 'full'
+        type: choice
+        options:
+          - full
+          - email-test
 
 jobs:
   daily-summary:
@@ -33,19 +42,37 @@ jobs:
       - name: Prepare GitHub Actions config
         run: cp data/config.github.json data/config.json
 
-      - name: Run Horizon
-        env:
-          # Agnes AI API (https://agnes-ai.com)
-          AGNES_API_KEY: ${{ secrets.AGNES_API_KEY }}
-          # Email 推送密码（微软邮箱开启 2FA 后使用应用密码）
-          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+      - name: Create dummy subscribers.json for email-test
+        if: ${{ github.event.inputs.mode == 'email-test' }}
+        run: |
+          mkdir -p data
+          if [ ! -f data/subscribers.json ]; then
+            echo '["lin1796646806@163.com"]' > data/subscribers.json
+            echo "Created data/subscribers.json with default test address"
+          else
+            echo "data/subscribers.json already exists: $(cat data/subscribers.json)"
+          fi
 
+      - name: Run Horizon (full mode)
+        if: ${{ github.event.inputs.mode != 'email-test' }}
+        env:
+          AGNES_API_KEY: ${{ secrets.AGNES_API_KEY }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
         run: uv run horizon --hours 24
 
+      - name: Run email diagnostic test
+        if: ${{ github.event.inputs.mode == 'email-test' }}
+        env:
+          AGNES_API_KEY: ${{ secrets.AGNES_API_KEY }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+        run: uv run horizon --email-test
+
       - name: Set current date as environment variable
+        if: ${{ github.event.inputs.mode != 'email-test' }}
         run: echo "DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
 
       - name: Deploy to GitHub Pages
+        if: ${{ github.event.inputs.mode != 'email-test' }}
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
