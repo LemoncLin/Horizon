@@ -190,23 +190,23 @@ class HorizonOrchestrator:
                 except Exception as e:
                     self.console.print(f"[yellow]⚠️  Failed to copy {lang.upper()} summary to docs/: {e}[/yellow]\n")
 
-                # Send email if configured
-                if self.email_manager and self.config.email and self.config.email.enabled:
-                    self.console.print(f"📧 Sending {lang.upper()} email summary...")
-                    subscribers = self.storage.load_subscribers()
-                    subject = f"Horizon Summary ({lang.upper()}) - {today}"
-                    self.email_manager.send_daily_summary(summary, subject, subscribers)
+                # 仅中文 (zh) 才推送邮件和 webhook
+                if lang == "zh":
+                    if self.email_manager and self.config.email and self.config.email.enabled:
+                        self.console.print(f"📧 Sending {lang.upper()} email summary...")
+                        subscribers = self.storage.load_subscribers()
+                        subject = f"Horizon Summary ({lang.upper()}) - {today}"
+                        self.email_manager.send_daily_summary(summary, subject, subscribers)
 
-                # Send webhook notification if configured
-                if self.webhook_notifier:
-                    await self.webhook_notifier.send_daily_summary(
-                        summary=summary,
-                        important_items=important_items,
-                        all_items_count=len(all_items),
-                        date=today,
-                        lang=lang,
-                        summarizer=summarizer,
-                    )
+                    if self.webhook_notifier:
+                        await self.webhook_notifier.send_daily_summary(
+                            summary=summary,
+                            important_items=important_items,
+                            all_items_count=len(all_items),
+                            date=today,
+                            lang=lang,
+                            summarizer=summarizer,
+                        )
 
             self.console.print("[bold green]✅ Horizon completed successfully![/bold green]")
             usage = get_usage_snapshot()
