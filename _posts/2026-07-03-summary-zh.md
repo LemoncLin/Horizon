@@ -5,130 +5,128 @@ date: 2026-07-03
 lang: zh
 ---
 
-> 从 59 条内容中筛选出 11 条重要资讯。
+> 从 61 条内容中筛选出 9 条重要资讯。
 
 ---
 
-1. [Cloudflare 9 月起默认拦截混合用途 AI 爬虫](#item-1) ⭐️ 9.0/10
-2. [OpenAI 提议美国政府持有 AI 巨头 5% 股份](#item-2) ⭐️ 9.0/10
-3. [美国人口普查局禁止差分隐私噪声注入技术](#item-3) ⭐️ 8.0/10
-4. [Podman v6.0.0 发布，带来无守护进程改进](#item-4) ⭐️ 8.0/10
-5. [西蒙·威利森强调“理解以参与”的 AI 编程策略](#item-5) ⭐️ 8.0/10
+1. [Podman v6.0.0 发布：无守护进程容器技术的重大里程碑](#item-1) ⭐️ 9.0/10
+2. [Anthropic 指控阿里巴巴对 Claude 实施大规模蒸馏攻击](#item-2) ⭐️ 9.0/10
+3. [Immich 3.0 讨论：自托管照片管理与端到端加密争议](#item-3) ⭐️ 8.0/10
+4. [美国禁止在人口普查数据中使用差分隐私](#item-4) ⭐️ 8.0/10
+5. [西蒙·威利森强调杰弗里·利特的“理解以参与”框架](#item-5) ⭐️ 8.0/10
 6. [FBI 查封 NetNut 代理平台并瓦解 Popa 僵尸网络](#item-6) ⭐️ 8.0/10
-7. [研究揭示 AI 推理模型中的思维链伪造漏洞](#item-7) ⭐️ 8.0/10
-8. [韦伯望远镜发现挑战早期宇宙宇宙学模型](#item-8) ⭐️ 8.0/10
-9. [Android 17 实施严格 PIN 码限制以防止暴力破解攻击](#item-9) ⭐️ 8.0/10
-10. [多家公司因成本飙升限制高级 AI 模型使用](#item-10) ⭐️ 8.0/10
-11. [PS3 商店 2027 年关闭引发紧急数据抢救行动](#item-11) ⭐️ 8.0/10
+7. [天体物理学家对韦布望远镜揭示的新宇宙感到困惑](#item-7) ⭐️ 8.0/10
+8. [多家大厂因按量计费成本飙升限制员工使用高级 AI 模型](#item-8) ⭐️ 8.0/10
+9. [谷歌 Gemini Omni Flash 登顶 Video Arena 排行榜](#item-9) ⭐️ 8.0/10
 
 ---
 
 <a id="item-1"></a>
-## [Cloudflare 9 月起默认拦截混合用途 AI 爬虫](https://techcrunch.com/2026/07/01/cloudflares-new-policy-pushes-ai-companies-to-pay-for-publishers-content/) ⭐️ 9.0/10
+## [Podman v6.0.0 发布：无守护进程容器技术的重大里程碑](https://blog.podman.io/2026/07/introducing-podman-v6-0-0/) ⭐️ 9.0/10
 
-Cloudflare 宣布自 2026 年 9 月 15 日起，将默认阻止在包含广告页面上运行的“混合用途”爬虫。该政策专门针对如 Googlebot 等同时服务于搜索引擎索引和 AI 训练的机器人，从而强制将这两种功能区分开来。 此举解决了长期以来 AI 公司利用搜索与 AI 爬取之间缺乏区分的漏洞来无偿获取内容的问题。这标志着 AI 数据使用货币化的重大转变，并为网络基础设施生态系统中确立了新的道德数据抓取标准。 该政策适用于 Googlebot、Applebot 和 BingBot 等多用途爬虫，如果网站限制 AI 训练访问，这些爬虫将被完全阻止。此外，该框架引入了“按使用付费”模式，以补偿 AI 实体对其内容的实际使用情况。
+Podman 项目已正式发布 6.0.0 版本，该版本在容器生命周期管理、安全协议增强以及与编排工具的集成方面带来了显著改进。 此次发布巩固了 Podman 作为 Docker 成熟替代品的地位，为开发者提供了更安全、更轻量的无守护进程容器运行时，使其更符合现代 Linux 系统管理实践。 关键特性包括 Quadlets，它允许通过 systemd 单元文件以声明式方式管理容器，从而消除了对复杂配置或像 Kubernetes 这样完整编排工具的需求，简化了简单部署流程。
 
-telegram · zaihuapd · 7月2日 05:37
+hackernews · soheilpro · 7月2日 14:23 · [社区讨论](https://news.ycombinator.com/item?id=48762098)
 
-**背景**: 传统上，搜索引擎机器人和 AI 训练爬虫使用相似的协议访问网络内容，通常忽略数据处理方式的区别。随着生成式 AI 模型需要大量文本进行训练，许多出版商抱怨科技巨头打着搜索索引的幌子抓取其受版权保护的材料。这项新政策试图通过将对 AI 数据的摄取视为需要明确许可和付款的独立商业活动，来关闭这一漏洞。
+**背景**: Podman 是一个无守护进程的容器引擎，旨在作为 Docker 的即插即用替代品，它通过直接运行容器而无需中央守护进程来专注于安全性和简洁性。与依赖后台服务的 Docker 不同，Podman 允许用户使用标准 systemd 命令管理容器和 Pod，这使其在无根环境和自动化基础设施管理中特别适用。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://theaiinsider.tech/2026/07/02/cloudflare-sets-september-deadline-to-force-ai-crawlers-apart-from-search-bots/">Cloudflare Sets September Deadline to Force AI Crawlers Apart From Search Bots</a></li>
-<li><a href="https://www.helpnetsecurity.com/2026/07/02/cloudflare-ai-crawler-controls/">Cloudflare changes AI crawler access rules - Help Net Security</a></li>
-<li><a href="https://techmymoney.com/2026/07/02/cloudflare-ai-crawler-rules-block-mixed-bots-by-default-and-pay-publishers-per-use/">Cloudflare AI Crawler Rules Block Mixed Bots by Default and Pay Publishers Per Use</a></li>
+<li><a href="https://docs.podman.io/en/latest/markdown/podman-quadlet.1.html">podman-quadlet — Podman documentation</a></li>
+<li><a href="https://podman-desktop.io/blog/podman-quadlet">Podman Quadlets with Podman Desktop | Podman Desktop</a></li>
 
 </ul>
 </details>
 
-**标签**: `#AI Policy`, `#Web Scraping`, `#Cloudflare`, `#Google`, `#Copyright`
+**社区讨论**: 社区反馈突出了从 Docker 迁移的便捷性，许多用户报告说 docker-compose 文件的转换无需额外配置，并赞赏消除了 Docker 守护进程的资源开销。用户还称赞 Quadlets 简化了 Fedora 和 Rocky Linux 等系统上的服务器端容器管理。
+
+**标签**: `#Podman`, `#Containerization`, `#DevOps`, `#Software Release`, `#Open Source`
 
 ---
 
 <a id="item-2"></a>
-## [OpenAI 提议美国政府持有 AI 巨头 5% 股份](https://www.bloomberg.com/news/articles/2026-07-02/openai-proposes-giving-the-us-government-a-5-stake-ft-says) ⭐️ 9.0/10
+## [Anthropic 指控阿里巴巴对 Claude 实施大规模蒸馏攻击](https://t.me/zaihuapd/42327) ⭐️ 9.0/10
 
-OpenAI 首席执行官 Sam Altman 提议由一个政府载体收购包括 OpenAI、Google 和 Meta 在内的美国主要 AI 公司各 5% 的股份，以便公众分享人工智能红利。该倡议旨在让人工智能繁荣带来的经济利益更加普惠。 这一提议在人工智能治理方面代表了重大转变，可能为国家对私营科技领域的所有权确立先例。它解决了关于财富集中以及人工智能快速发展对社会影响的日益增长的担忧。 该计划涉及一家统一的政府控股公司收购多家竞争对手的股份以避免利益冲突，但监管障碍依然存在。Google 和 Meta 等其他公司尚未确认是否接受此提议。
+Anthropic 指控阿里巴巴对其 Claude 模型实施了已知最大规模的蒸馏攻击，利用近 2.5 万个欺诈账户在 2026 年 4 月 22 日至 6 月 5 日期间产生了超过 2880 万次交互。该公司声称，此举旨在为其 Qwen 实验室非法提取 AI 能力。 这一事件凸显了通过模型蒸馏进行知识产权盗窃的日益增长的威胁，其中较弱的模型从较强的模型中学习以复制昂贵的推理能力。它标志着主要 AI 开发者之间安全冲突的升级，并引发了对大型语言模型训练数据完整性的担忧。 Anthropic 将此次攻击描述为具有海量体积、高度重复结构以及内容直接映射到有价值训练数据的特征，这些都是蒸馏尝试的标志。该指控具体涉及阿里巴巴及其 AI 实验室 Qwen，标志着企业 AI 安全纠纷的重大升级。
 
-telegram · zaihuapd · 7月2日 06:02
+telegram · zaihuapd · 7月3日 06:21
 
-**背景**: OpenAI recently transitioned from a non-profit to a capped-for-profit Public Benefit Corporation (PBC) structure, which has sparked debates about its mission alignment. The concept of Special Purpose Vehicles (SPVs) is increasingly relevant in AI infrastructure financing, though OpenAI has shown resistance to opaque SPV structures in fundraising.
+**背景**: 模型蒸馏是一种技术，通过该技术训练较小、能力较弱的模型来模仿较大、功能更强的模型的输出，从而有效地窃取其知识。最近的报告表明，蒸馏攻击作为一种知识产权盗窃手段正在上升，特别是针对昂贵的具备推理能力的模型。Anthropic 此前曾表示，此类攻击的特征在于其规模和提取专有模型能力的意图，而非正常使用。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/OpenAI">OpenAI - Wikipedia</a></li>
-<li><a href="https://openai.com/index/evolving-our-structure/">Evolving OpenAI’s structure | OpenAI</a></li>
-<li><a href="https://medium.com/@danny_hayes_II/ai-is-becoming-an-spv-market-ead39a3706d7">AI Is Becoming an SPV Market. The artificial intelligence boom is no… | by Keary "Danny "Hayes II | May, 2026 | Medium</a></li>
+<li><a href="https://www.mindstudio.ai/blog/ai-model-distillation-attacks-explained">AI Model Distillation Attacks: What They Are and Why They Matter | MindStudio</a></li>
+<li><a href="https://www.anthropic.com/news/detecting-and-preventing-distillation-attacks">Detecting and preventing distillation attacks \ Anthropic</a></li>
+<li><a href="https://cloud.google.com/blog/topics/threat-intelligence/distillation-experimentation-integration-ai-adversarial-use">GTIG AI Threat Tracker: Distillation, Experimentation, and ...</a></li>
 
 </ul>
 </details>
 
-**标签**: `#AI Governance`, `#Corporate Policy`, `#Government Regulation`, `#OpenAI`, `#Tech Industry`
+**标签**: `#AI Security`, `#Model Distillation`, `#Anthropic`, `#Alibaba`, `#Industry News`
 
 ---
 
 <a id="item-3"></a>
-## [美国人口普查局禁止差分隐私噪声注入技术](https://scottaaronson.blog/?p=9902) ⭐️ 8.0/10
+## [Immich 3.0 讨论：自托管照片管理与端到端加密争议](https://github.com/immich-app/immich/discussions/29439) ⭐️ 8.0/10
 
-2026 年 6 月 4 日，美国商务部发布第 DAO-216-26 号指令，禁止人口普查局在其统计产品中使用差分隐私等“噪声注入”技术。该政策将披露避免措施主要限制为“粗化”，实际上结束了使用校准随机噪声来保护个人数据隐私的做法。 这一决定严重削弱了人口普查局在平衡数据效用与个人隐私保护方面的能力，可能会暴露敏感的人口统计数据。这是联邦数据政策的重大转变，可能影响公共统计数据的可靠性，并引发关于政府透明度和政治动机的激烈争论。 该指令明确禁止通过添加随机值或噪声来修改数据集的方法，而这些方法是差分隐私框架的核心组成部分。虽然允许使用粗化技术，但与数学上严谨的噪声注入相比，它们在防止重新识别攻击方面提供的保护较弱。
+Hacker News 上的讨论突出了 Immich 3.0 作为 Google Photos 的主要自托管替代品，并引发了关于缺乏端到端加密的争论。 这场对话强调了自托管隐私工具日益成熟，同时揭示了用户在便利性、安全性和数据可访问性之间面临的权衡。 用户讨论了使用服务器端加密和代理的实际家庭实验室设置，而其他人则批评从 Google Photos 和 iCloud 等云服务迁移的过程困难重重。
 
-hackernews · flowercalled · 7月3日 00:01 · [社区讨论](https://news.ycombinator.com/item?id=48768992)
+hackernews · hashier · 7月2日 14:13 · [社区讨论](https://news.ycombinator.com/item?id=48761944)
 
-**背景**: 差分隐私是一种于 2006 年发明的数学严谨框架，通过在数据集或查询结果中添加校准的统计噪声来保护个人隐私。该技术允许研究人员发布准确的聚合统计数据，同时确保单个个体数据的包含或不包含不会显著影响输出结果，从而防止重新识别。
+**背景**: Immich 是一款高性能的开源应用程序，用于在私有服务器上备份和组织照片和视频，截至 2026 年初已获得超过 90,000 个 GitHub 星标。端到端加密确保数据在到达服务器之前在客户端进行加密，而服务器端加密允许提供商访问数据。Immich 缺乏端到端加密是优先考虑零知识架构的隐私倡导者常见的争议点。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://www.npr.org/2026/06/12/nx-s1-5855734/census-bureau-data-differential-privacy">Trump privacy restrictions may reduce Census Bureau data : NPR</a></li>
-<li><a href="https://cybermediacreations.com/noise-infusion-banned-from-statistical-products-published-by-census-bureau/">Noise infusion banned from statistical products published by Census ...</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Differential_privacy">Differential privacy - Wikipedia</a></li>
+<li><a href="https://immich.app/">Immich</a></li>
+<li><a href="https://github.com/immich-app/immich">GitHub - immich-app/immich: High performance self-hosted photo and video management solution. · GitHub</a></li>
+<li><a href="https://localtonet.com/blog/how-to-self-host-immich-and-access-your-photo-library-from-anywhere">How to Self-Host Immich and Access Your Photo Library from Anywhere | Localtonet Blog</a></li>
 
 </ul>
 </details>
 
-**社区讨论**: 社区对指令背后的政治动机表示担忧，有人质疑限制增强隐私技术的非微妙目的。讨论强调了移除用于 GDPR 合规工具的反常现象，并指出原始行动号召中缺乏直接链接到立法者的信息。
+**社区讨论**: 社区意见不一，一些人赞扬 Immich 相比 Google Photos 的功能性和易用性，而另一些人则认为缺乏端到端加密是一个关键缺陷。人们还担心第三方导入工具的 buggy 状态以及原生 iOS 应用在处理实况照片时的问题。
+
+**标签**: `#Self-Hosting`, `#Immich`, `#Privacy`, `#Homelab`, `#Photo Management`
+
+---
+
+<a id="item-4"></a>
+## [美国禁止在人口普查数据中使用差分隐私](https://scottaaronson.blog/?p=9902) ⭐️ 8.0/10
+
+2026 年 6 月 4 日，美国商务部发布第 DAO 216-26 号指令，禁止在人口普查数据中使用差分隐私等“噪声注入”技术。该指令将披露避免方法主要限制为“粗化”和抑制手段。 这一决定对美国联邦数据的统计严谨性和隐私保障产生了重大影响，可能会降低研究人员的数据可用性。它反映了政策向传统方法而非现代密码学隐私标准的重大转变。 该指令明确禁止向数据集中添加随机值，针对的是使用数学参数来限制个体暴露风险的差分隐私。粗化仍是首选技术，抑制手段仅在最后手段时使用。
+
+hackernews · flowercalled · 7月3日 00:01 · [社区讨论](https://news.ycombinator.com/item?id=48768992)
+
+**背景**: 差分隐私是一种严格的数学框架，通过向数据集中添加受控噪声来保护个人隐私，确保任何单个记录的包含或不包含都不会显著影响输出结果。人口普查局历来使用披露避免系统，包括交换和粗化，以防止在发布的统计数据中识别个人身份。
+
+<details><summary>参考链接</summary>
+<ul>
+<li><a href="https://desfontain.es/blog/banning-noise.html">Banning noise will be a disaster for statistical data ...</a></li>
+<li><a href="https://www.npr.org/2026/06/12/nx-s1-5855734/census-bureau-data-differential-privacy">A Trump push to cut 'statistical noise' could mean less data from the Census Bureau</a></li>
+
+</ul>
+</details>
+
+**社区讨论**: 社区成员对禁令背后的政治动机提出质疑，有些人将其与遗产基金会的影響联系起来。其他人则担心粗化方法的实际失败以及对新指令缺乏详细解释。
 
 **标签**: `#Privacy`, `#Policy`, `#Differential Privacy`, `#Census`, `#Data Science`
 
 ---
 
-<a id="item-4"></a>
-## [Podman v6.0.0 发布，带来无守护进程改进](https://blog.podman.io/2026/07/introducing-podman-v6-0-0/) ⭐️ 8.0/10
-
-Podman v6.0.0 已正式发布，为容器管理引入了新功能和性能改进。这一重大更新包括网络方面的增强，并巩固了其作为 Docker 强大替代品的地位。 此次发布突显了无守护进程容器化技术的日益成熟，与传统基于守护进程的工具相比，为用户提供了更高的安全性和资源效率。它通过提供可行的开源路径，影响了 DevOps 生态系统，帮助团队减少对专有容器引擎的依赖。 Podman 在没有中央守护进程的情况下运行，允许容器作为用户会话的直接子进程运行，从而默认增强了安全性。该版本还解决了兼容性问题，但用户可能仍需要配置如 DOCKER_HOST 等环境变量，以便与现有的 Docker Compose 工作流无缝集成。
-
-hackernews · soheilpro · 7月2日 14:23 · [社区讨论](https://news.ycombinator.com/item?id=48762098)
-
-**背景**: Podman 是一个无守护进程的容器引擎，用于在 Linux 上开发、管理和运行开放容器倡议（OCI）容器和 Pod。与依赖持久后台守护进程的 Docker 不同，Podman 直接与容器运行时交互，减少了开销以及与根权限相关的潜在安全风险。这种架构差异使得 Podman 对于优先考虑安全性和轻量级操作的环境特别有吸引力。
-
-<details><summary>参考链接</summary>
-<ul>
-<li><a href="https://last9.io/blog/podman-vs-docker/">Podman vs Docker 2026: Security, Performance & Differences | Last9</a></li>
-<li><a href="https://www.redhat.com/en/blog/podman-compose-docker-compose">Podman Compose or Docker Compose: Which should you use in Podman?</a></li>
-<li><a href="https://podman-desktop.io/docs/migrating-from-docker/managing-docker-compatibility">Managing Docker compatibility | Podman Desktop</a></li>
-
-</ul>
-</details>
-
-**社区讨论**: 社区情绪总体积极，用户称赞从 Docker 迁移的便利性以及无需守护进程即可运行无根容器的优势。然而，一些开发者对 Ubuntu 等流行发行版支持有限表示不满，认为尽管具有技术优势，但这阻碍了更广泛的采用。
-
-**标签**: `#Podman`, `#Containerization`, `#DevOps`, `#Software Release`
-
----
-
 <a id="item-5"></a>
-## [西蒙·威利森强调“理解以参与”的 AI 编程策略](https://simonwillison.net/2026/Jul/2/understand-to-participate/#atom-everything) ⭐️ 8.0/10
+## [西蒙·威利森强调杰弗里·利特的“理解以参与”框架](https://simonwillison.net/2026/Jul/2/understand-to-participate/#atom-everything) ⭐️ 8.0/10
 
-西蒙·威利森强调了杰弗里·利特的“理解以参与”概念，主张开发者必须保持对代码的充分理解，以便与 AI 代理进行积极协作。这种方法旨在防止认知债务，即由于过度依赖自动生成而导致开发者的代码库心智模型与现实脱节的现象。 随着 AI 代理处理越来越复杂的任务，这一框架对于软件工程的未来至关重要。通过以理解为前提积极参与，团队可以保持对代码库的掌控力，并避免失去对生成逻辑控制权所带来的隐性成本。 利特指出，脑海中拥有丰富的概念体系是创造性且流畅地推进项目所必需的。威利森推荐观看利特在 AI 工程师世界博览会上的演讲，该演讲专门探讨了在协作编程过程中避免认知债务的具体挑战。
+西蒙·威利森讨论了杰弗里·利特提出的“理解以参与”概念，该观点认为开发者必须深入理解人工智能生成的代码，以避免认知债务并保持在创作过程中的积极参与。利特在人工智能工程师会议上提出了这一想法，强调对代码概念的流利掌握对于与复杂的编码代理有效协作至关重要。 这一框架解决了现代软件工程中的一个关键挑战，即人工智能代理生成复杂代码的速度快于人类直观理解的速度。通过优先考虑理解能力，开发者可以减轻积累认知债务的风险，确保他们保留对项目的控制权和主动权，而不是成为不透明人工智能输出的被动审查者。 利特将认知债务定义为当开发者的心理模型因依赖人工智能工具而与代码的实际工作方式脱节时，共享理解的侵蚀。他建议保持丰富的概念集可以实现流畅的思维和积极参与，而缺乏流利性会显著限制一个人对项目做出贡献的能力。
 
 rss · Simon Willison · 7月2日 17:07
 
-**背景**: 认知债务是指开发者在迷失系统运作方式时产生的心理负担，通常由掩盖底层逻辑的 AI 生成代码加剧。与技术债务（存在于代码中）不同，认知债务附着于个人工程师身上，因此更难修复。最近的研究表明，如果开发者不主动参与生成的材料，AI 辅助编码会显著降低其理解能力得分。
+**背景**: 生成式人工智能编码代理的兴起将开发者的角色从编写每一行代码转变为审查和整合人工智能建议的更改。然而，这种转变引入了诸如技术债务以及更微妙的认知债务等风险，在这些情况下，团队可能会失去对代码库底层逻辑和理由的关注。最近的讨论，包括利特的演讲和相关学术论文，强调了需要新的思维模式来有效管理这些不断变化的职责。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://simonwillison.net/2026/Jul/2/understand-to-participate/">Understand to participate | Simon Willison’s Weblog</a></li>
+<li><a href="https://simonwillison.net/2026/jul/2/understand-to-participate/">Understand to participate | Simon Willison’s Weblog</a></li>
 <li><a href="https://www.geoffreylitt.com/2026/07/02/understanding-is-the-new-bottleneck.html">Understanding is the new bottleneck</a></li>
-<li><a href="https://blog.appxlab.io/2026/04/14/cognitive-debt-ai-generated-code/">Cognitive Debt : The Hidden Cost of AI-Generated... - The Agentic Blog</a></li>
+<li><a href="https://arxiv.org/abs/2603.22106">From Technical Debt to Cognitive and Intent Debt: Rethinking ...</a></li>
 
 </ul>
 </details>
@@ -140,126 +138,86 @@ rss · Simon Willison · 7月2日 17:07
 <a id="item-6"></a>
 ## [FBI 查封 NetNut 代理平台并瓦解 Popa 僵尸网络](https://krebsonsecurity.com/2026/07/fbi-seizes-netnut-proxy-platform-popa-botnet/) ⭐️ 8.0/10
 
-美国联邦调查局（FBI）与行业合作伙伴合作，查封了与 NetNut 相关的数百个域名，NetNut 是由以色列公司 Alarum Technologies 运营的住宅代理服务。此举瓦解了 Popa 僵尸网络，该网络控制了至少两百万台设备，此前有报告将该代理网络与恶意活动联系起来。 此次查封凸显了合法基础设施提供商与网络犯罪生态系统之间的关键联系，展示了住宅代理如何被滥用于大规模攻击。这表明监管机构对代理服务的审查力度加大，并对广告欺诈和数据抓取网络的运营者造成了重大打击。 Popa 僵尸网络主要针对基于 Android 的消费级电视盒子和流媒体设备，迫使它们转发流量以进行广告欺诈和账户接管。安全公司在六月中旬发现了这些联系，随后引发了 FBI 的干预。
+美国联邦调查局（FBI）与行业合作伙伴合作，查封了由 Alarum Technologies 运营的住宅代理服务平台 NetNut 的数百个域名。这一行动有效瓦解了 Popa 僵尸网络，该网络此前已入侵至少两百万台设备。 此次查封突显了合法代理服务与恶意僵尸网络基础设施之间的关键联系，展示了执法部门如何瓦解大规模网络威胁。这对运营代理网络的公司敲响了警钟，提醒他们需对基础设施被滥用于恶意活动承担潜在责任。 NetNut 是一家在纳斯达克上市（股票代码 ALAR）的以色列上市公司。Popa 僵尸网络与针对非官方安卓电视盒子的 Vo1d 恶意软件活动有关，此次破坏行动涉及禁用其命令与控制账户。
 
 rss · Krebs on Security · 7月2日 19:27
 
-**背景**: Residential proxy networks like NetNut allow users to route internet traffic through IP addresses assigned to home broadband connections, often used for web scraping or bypassing geo-restrictions. However, these networks can be exploited by malware authors to hide the origin of malicious traffic, making attribution difficult. The Popa botnet specifically infected smart TVs and streaming boxes to create a vast network of compromised devices.
+**背景**: Residential proxy services route internet traffic through IP addresses assigned to home users, making them difficult to distinguish from legitimate traffic. While often used for web scraping or bypassing geo-restrictions, these networks can be exploited by botnets to hide the origins of malicious activities. The Popa botnet specifically leveraged compromised devices to create a vast pool of residential IPs for such purposes.
 
 <details><summary>参考链接</summary>
 <ul>
 <li><a href="https://krebsonsecurity.com/2026/07/fbi-seizes-netnut-proxy-platform-popa-botnet/">FBI Seizes NetNut Proxy Platform, Popa Botnet – Krebs on Security</a></li>
-<li><a href="https://krebsonsecurity.com/2026/06/popa-botnet-linked-to-publicly-traded-israeli-firm/">'Popa' Botnet Linked to Publicly-Traded Israeli Firm</a></li>
+<li><a href="https://cybernews.com/news/google-fbi-disrupt-netnut-botnet-2-million-devices/">Google, FBI disrupt NetNut botnet spanning 2M devices | Cybernews</a></li>
 
 </ul>
 </details>
 
-**标签**: `#Cybersecurity`, `#Botnets`, `#Law Enforcement`, `#Infrastructure`
+**标签**: `#Cybersecurity`, `#Botnets`, `#Law Enforcement`, `#Network Security`, `#Privacy`
 
 ---
 
 <a id="item-7"></a>
-## [研究揭示 AI 推理模型中的思维链伪造漏洞](https://hackaday.com/2026/07/02/chain-of-thought-spoofing-targets-reasoning-ai-models/) ⭐️ 8.0/10
+## [天体物理学家对韦布望远镜揭示的新宇宙感到困惑](https://www.quantamagazine.org/astrophysicists-puzzle-over-webbs-new-universe-20260702/) ⭐️ 8.0/10
 
-研究人员 Charles Ye、Jasmine Cui 和 Dylan Hadfield-Menell 证明，通过模仿指令风格可以欺骗大型语言模型，导致其无法区分合法来源和恶意来源。 这一发现突显了一个关键的安全缺陷，即模型优先考虑写作风格而非来源真实性，这可能使攻击者能够将伪造的内部推理注入高信任角色中。 这种被称为“思维链伪造”的攻击利用了模型对特定风格线索的信任倾向，有效地绕过了旨在验证指令来源的安全措施。
+詹姆斯·韦布空间望远镜发现了质量过大且出现时间过早的黑洞和星系，这对当前的宇宙学模型提出了挑战。科学家们正在开发新理论来解释这些异常现象，例如超大质量黑洞在其宿主星系形成之前就已经存在。 这些发现表明，标准宇宙学模型可能需要重大修正，因为观测到的结构形成得比预测的要早得多，且生长速度更快。这影响了我们对宇宙黎明时期及早期宇宙演化的理解。 最近的观测包括像 QSO1 这样的“小红点”，其中的黑洞似乎早于其所在星系形成，以及跨越数十亿光年的相干结构，这可能违反了宇宙学原理。
 
-rss · Hackaday · 7月3日 02:00
+rss · Quanta Magazine · 7月2日 14:57
 
-**背景**: 思维链（CoT）提示是一种技术，鼓励模型在提供最终答案之前生成逐步推理过程，这通常能提高复杂任务的性能。然而，这一过程依赖于模型自身基于输入生成真实推理路径的假设。最近的研究表明，对抗性输入可以通过模仿合法推理轨迹的预期格式或风格来操纵这些内部过程。
+**背景**: 詹姆斯·韦布空间望远镜旨在通过红外光观测宇宙，使其能够回溯到第一批恒星和星系形成的宇宙黎明时期。宇宙学原理假设宇宙在大尺度上是均匀且各向同性的，但最近的数据暗示存在比预期更大的结构，从而挑战了这一假设。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://hackaday.com/2026/07/02/chain-of-thought-spoofing-targets-reasoning-ai-models/">Chain - of - Thought Spoofing Targets Reasoning AI Models | Hackaday</a></li>
+<li><a href="https://link.springer.com/article/10.1007/s10509-025-04467-y">Early galaxies and supermassive black holes discovered by the ...</a></li>
+<li><a href="https://phys.org/news/2026-01-supermassive-black-hole-early-universe.html">Rule-breaking supermassive black hole discovered in the early ...</a></li>
+<li><a href="https://science.nasa.gov/missions/webb/nasas-webb-reveals-black-hole-that-formed-before-its-galaxy/">NASA’s Webb Reveals Black Hole That Formed Before Its Galaxy</a></li>
 
 </ul>
 </details>
 
-**标签**: `#AI Security`, `#LLM Vulnerabilities`, `#Chain-of-Thought`, `#Adversarial Attacks`, `#Research`
+**标签**: `#Astrophysics`, `#James Webb Space Telescope`, `#Cosmology`, `#Scientific Research`
 
 ---
 
 <a id="item-8"></a>
-## [韦伯望远镜发现挑战早期宇宙宇宙学模型](https://www.quantamagazine.org/astrophysicists-puzzle-over-webbs-new-universe-20260702/) ⭐️ 8.0/10
+## [多家大厂因按量计费成本飙升限制员工使用高级 AI 模型](https://www.404media.co/companies-are-throttling-employees-ai-use-because-its-too-expensive/) ⭐️ 8.0/10
 
-詹姆斯·韦伯太空望远镜观测到了与当前宇宙学预测相矛盾的意外巨大的早期星系和黑洞。科学家正在开发新理论来解释这些异常现象，例如快速恒星形成或替代性的黑洞种子机制。 这些发现表明我们对早期宇宙结构和演化的理解是不完整或不正确的。解决这一谜题对于完善标准宇宙学模型并准确绘制宇宙历史的时间线至关重要。 观测结果包括比预期更早清除宇宙雾气的星系以及大爆炸后仅数亿年存在的“红色怪物”星系。潜在的解释涉及极快的恒星形成率或无金属气体云直接坍缩成黑洞种子。
+包括花旗集团、Atlassian 和 Adobe 在内的多家大型企业因运营成本迅速上升，正在限制或取消员工对 GPT-5.5 和 Claude Opus 4.7 等高级 AI 模型的访问权限。花旗集团已于 6 月 24 日完全禁用了这些高成本模型，而 Atlassian 的月度 AI 支出在 2025 年 8 月至 2026 年 5 月期间从 500 万美元激增至超过 1500 万美元。 这一趋势标志着行业的关键转变，即最初对无限制采用 AI 的热情正受到不可持续的按量计费模式的现实制约。随着基于 token 的定价凸显出推理的真实成本，企业被迫实施严格的成本控制，这可能会减缓前沿模型在日常工作流程中的整合速度。 成本激增是由最新前沿模型的高 token 消耗驱动的，例如 GPT-5.5 的输入 token 价格为每百万 5 美元，输出 token 为每百万 30 美元。各公司通过引入成本追踪仪表板、终止无限使用合同以及执行之前未知的 token 使用上限来应对，以管理其 AI 基础设施支出。
 
-rss · Quanta Magazine · 7月2日 14:57
+telegram · zaihuapd · 7月2日 13:59
 
-**背景**: 詹姆斯·韦伯太空望远镜（JWST）旨在回溯到早期宇宙，观测大爆炸后形成的第一批星系。标准宇宙学模型预测，这些早期结构应该更小且不成熟，需要数十亿年才能成长为今天我们看到的巨大星系。然而，韦伯望远镜的红外观测能力揭示了在理论允许的时间内就似乎完全成型的物体。
+**背景**: 企业 AI 的采用主要依赖于按量付费的 API，其中成本是根据推理过程中处理的 token 数量计算的。虽然 GPT-5.5 和 Claude Opus 4.7 等模型在复杂专业工作中提供了更优越的推理能力和可靠性，但与标准模型相比，它们的效率提升往往伴随着显著更高的价格点。这种定价结构意味着，随着员工使用更强大的模型处理详细任务，运营账单可能会呈指数级增长而非线性增长。
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://science.nasa.gov/missions/webb/nasas-webb-sees-galaxy-mysteriously-clearing-fog-of-early-universe/">NASA's Webb Sees Galaxy Mysteriously Clearing Fog of Early Universe - NASA Science</a></li>
-<li><a href="https://www.scientificamerican.com/article/jwst-discovers-red-monster-galaxy-that-challenges-astronomers-understanding-of-the-early-universe/">Astronomers puzzle over early origins of mysterious ‘red monster’ galaxy</a></li>
-<li><a href="https://www.universetoday.com/articles/an-explanation-for-the-jwsts-puzzling-early-galaxies">An Explanation For The JWST's Puzzling Early Galaxies - Universe Today</a></li>
+<li><a href="https://apidog.com/blog/what-is-gpt-5-5/">What Is GPT - 5 . 5 ? OpenAI's New Frontier Model Explained</a></li>
+<li><a href="https://openrouter.ai/openai/gpt-5.5">GPT - 5 . 5 - API Pricing & Benchmarks | OpenRouter</a></li>
+<li><a href="https://www.digitalapplied.com/blog/claude-opus-4-7-complete-guide">Claude Opus 4 . 7 : Anthropic 's New Frontier Model Guide</a></li>
 
 </ul>
 </details>
 
-**标签**: `#Astrophysics`, `#JWST`, `#Cosmology`, `#Black Holes`, `#Scientific Research`
+**标签**: `#AI Economics`, `#Enterprise Strategy`, `#Cost Management`, `#LLM Adoption`
 
 ---
 
 <a id="item-9"></a>
-## [Android 17 实施严格 PIN 码限制以防止暴力破解攻击](https://www.digitaltrends.com/phones/android-17-makes-it-harder-for-bad-actors-to-guess-and-crack-the-pin-on-your-phone/) ⭐️ 8.0/10
+## [谷歌 Gemini Omni Flash 登顶 Video Arena 排行榜](https://x.com/Designarena/status/2072759122366509130) ⭐️ 8.0/10
 
-Android 17 大幅减少了允许的 PIN 码猜测次数，在五年内最多仅允许 20 次尝试，随后将永久锁定设备。与允许高达 1800 次猜测的 Android 16 相比，这是一次显著的收紧。 此更新有效遏制了针对移动设备的暴力破解攻击，显著增强了用户数据在防止未授权访问方面的安全性。它通过使自动化猜测变得几乎不可能，为移动操作系统安全树立了新标准。 新的速率限制算法在第一分钟允许大约六次尝试，并在 24 小时内缓慢增加到 12 次。为了减少误报，系统会忽略重复输入的相同错误 PIN 码，并提供更清晰的锁定通知。
+谷歌 DeepMind 的 Gemini Omni Flash 以 1404 分的成绩登顶 Video Arena 盲测排行榜，领先第二名字节跳动的 Seedance 2.0 Mini 超过 100 分。这标志着谷歌视频模型排名的显著提升，较之前的 Veo 系列时期上升了七个位置。 这一成就标志着人工智能视频生成领域竞争格局的重大转变，挑战了字节跳动在排行榜上长期的主导地位。它突显了像 Gemini 这样的大型多模态模型在功能上的快速进步，这些模型现在将视频生成功能直接集成到其核心能力中。 该排名基于用户盲测，参与者在不了解提供方的情况下对首选视频输出进行投票。Gemini Omni Flash 被设计为一种针对视频、图像和文本任务优化的多模态模型，允许通过对话进行自然的视频编辑。
 
-telegram · zaihuapd · 7月2日 07:35
+telegram · zaihuapd · 7月3日 05:51
 
-**背景**: 暴力破解攻击涉及系统地检查 PIN 码或密码的所有可能组合，以未经授权的方式访问设备。历史上，移动操作系统对登录失败尝试的限制相对宽松，允许攻击者使用软件工具快速猜测代码。Android 17 通过实施严格的基于时间的指数退避限制，解决了这一漏洞。
+**背景**: Video Arena is a benchmarking service that ranks AI video generators using ELO ratings derived from human pairwise comparisons. Previously, ByteDance's Seedance series held the top spots, with Seedance 2.0 Mini known for its motion stability and audio-video joint generation. The emergence of Gemini Omni Flash demonstrates how general-purpose multimodal models are increasingly competing with specialized video generation tools.
 
 <details><summary>参考链接</summary>
 <ul>
-<li><a href="https://www.phonearena.com/news/android-17-protects-users-from-brute-force-attacks_id181554">Android 17 makes it harder for a brute-force attack to successfully break into your phone - PhoneArena</a></li>
-<li><a href="https://www.gizchina.com/android-devices/android-17-just-made-your-pin-exponentially-harder-to-crack">Android 17 Just Made Your PIN Exponentially Harder to Crack</a></li>
-<li><a href="https://www.androidauthority.com/android-17-pin-password-protection-3683166/">Android 17's new lock screen trick could frustrate anyone trying to break into your phone</a></li>
+<li><a href="https://arena.ai/video">Video Arena : Compare the Best AI Video Generators</a></li>
+<li><a href="https://deepmind.google/models/model-cards/gemini-omni-flash/">Gemini Omni Flash - Model Card — Google DeepMind</a></li>
+<li><a href="https://seed.bytedance.com/en/seedance2_0">Seedance 2.0 - seed.bytedance.com</a></li>
 
 </ul>
 </details>
 
-**标签**: `#Android Security`, `#Mobile OS`, `#Brute Force Protection`, `#System Update`
-
----
-
-<a id="item-10"></a>
-## [多家公司因成本飙升限制高级 AI 模型使用](https://www.404media.co/companies-are-throttling-employees-ai-use-because-its-too-expensive/) ⭐️ 8.0/10
-
-花旗、Atlassian 和 Adobe 等公司因按用量计费成本飙升，正在限制或禁止访问 GPT-5.5 和 Claude Opus 等高级 AI 模型。花旗银行于 6 月 24 日禁用了这些模型，而 Atlassian 的月 AI 支出在 2025 年 8 月至 2026 年 5 月期间从 500 万美元激增至超过 1500 万美元。 这一转变标志着企业 AI 采用的关键转折点，从无限制的实验转向严格的成本控制和预算规划。它凸显了为一般员工生产力使用前沿模型所面临的财务可持续性挑战，迫使企业在创新与运营成本之间取得平衡。 主要驱动因素是基于消耗的计费模式，其中 GPT-5.5 等模型在执行复杂推理任务时，令牌（token）使用量会迅速增加。各大公司现在正在实施内部仪表板、使用上限，并放弃无限期合同，以有效管理这些意外支出。
-
-telegram · zaihuapd · 7月2日 13:59
-
-**背景**: 企业 AI 集成主要依赖于按使用量付费或基于令牌的定价模式，成本与处理的数据量及模型复杂度直接相关。虽然 GPT-5.5 等模型提供了更优越的推理能力和可靠性，但其较高的计算需求导致账单金额远高于标准模型，从而造成许多组织的预算超支。
-
-<details><summary>参考链接</summary>
-<ul>
-<li><a href="https://openrouter.ai/openai/gpt-5.5">GPT - 5 . 5 - API Pricing & Benchmarks | OpenRouter</a></li>
-<li><a href="https://apidog.com/blog/what-is-gpt-5-5/">What Is GPT - 5 . 5 ? OpenAI's New Frontier Model Explained</a></li>
-
-</ul>
-</details>
-
-**标签**: `#AI Cost Management`, `#Enterprise Adoption`, `#Cloud Economics`, `#Corporate Policy`, `#LLM Usage`
-
----
-
-<a id="item-11"></a>
-## [PS3 商店 2027 年关闭引发紧急数据抢救行动](http://no-intro.org/) ⭐️ 8.0/10
-
-索尼宣布 PS3 和 PS Vita 的 PlayStation 商店将于 2027 年 7 月永久关闭，这促使数字档案管理员和 RPCS3 模拟器团队紧急备份游戏数据。 这一关闭事件凸显了纯数字游戏库的脆弱性，因为从未发行实体版的数字游戏面临永久丢失的风险，引发了人们对数字媒体长期可访问性的担忧。 RPCS3 团队建议使用 no-intro.org 数据库来跟踪加密签名和文件大小等元数据，确保社区能够验证哪些数字资产已成功保存。
-
-telegram · zaihuapd · 7月2日 15:04
-
-**背景**: 数字版权管理（DRM）用于保护受版权保护的软件，但当官方商店关闭时，这些保护措施可能会使在没有实体介质的情况下访问合法购买的内容变得困难。no-intro.org 项目维护着一个全面的遊戲校验和与元数据数据库，这对于模拟社区识别真实且未修改的游戏副本至关重要。随着索尼将重心转向新主机，旧数字生态系统面临弃用，这使得社区主导的存档对于保存游戏历史变得必不可少。
-
-<details><summary>参考链接</summary>
-<ul>
-<li><a href="https://www.tomshardware.com/video-games/playstation/digital-archivists-rush-to-save-ps3-game-data-before-sony-shuts-down-the-store-forever-in-2027-rpcs3-emulator-urges-users-to-preserve-all-content">Digital archivists rush to save PS3 game data before... | Tom's Hardware</a></li>
-<li><a href="https://no-intro.org/">No - Intro . org</a></li>
-
-</ul>
-</details>
-
-**标签**: `#Digital Preservation`, `#Gaming History`, `#PS3`, `#Archive`, `#Tech News`
+**标签**: `#AI Video Generation`, `#Google DeepMind`, `#Gemini`, `#Benchmark Rankings`, `#Multimodal AI`
 
 ---
