@@ -83,7 +83,8 @@
     }
   },
   "filtering": {
-    "ai_score_threshold": 8.0,
+    "ai_score_threshold": 6.0,
+    "max_items": 20,
     "time_window_hours": 24
   },
   "webhook": {
