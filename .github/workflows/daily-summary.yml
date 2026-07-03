@@ -39,8 +39,7 @@ jobs:
           AGNES_API_KEY: ${{ secrets.AGNES_API_KEY }}
           # Email 推送密码（微软邮箱开启 2FA 后使用应用密码）
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
-          # Webhook 推送地址（飞书/Discord/Slack 等，可选）
-          HORIZON_WEBHOOK_URL: ${{ secrets.HORIZON_WEBHOOK_URL }}
+
         run: uv run horizon --hours 24
 
       - name: Set current date as environment variable
