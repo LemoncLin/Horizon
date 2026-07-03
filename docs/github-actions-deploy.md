@@ -7,15 +7,17 @@
 ## 目录
 
 1. [前置准备](#1-前置准备)
-2. [Fork 仓库](#2-fork-仓库)
+2. [Fork 仓库与分支策略](#2-fork-仓库与分支策略)
 3. [配置 Secrets](#3-配置-secrets)
 4. [配置邮件推送](#4-配置邮件推送)
 5. [自定义数据源](#5-自定义数据源)
 6. [启用 GitHub Pages](#6-启用-github-pages)
-7. [工作流说明](#7-工作流说明)
-8. [手动触发](#8-手动触发)
-9. [验证部署](#9-验证部署)
-10. [故障排查](#10-故障排查)
+7. [设置为默认分支](#7-设置为默认分支)
+8. [工作流说明](#8-工作流说明)
+9. [手动触发](#9-手动触发)
+10. [同步上游仓库](#10-同步上游仓库)
+11. [验证部署](#11-验证部署)
+12. [故障排查](#12-故障排查)
 
 ---
 
@@ -28,13 +30,37 @@
 
 ---
 
-## 2. Fork 仓库
+## 2. Fork 仓库与分支策略
+
+### 2.1 Fork
 
 1. 访问 https://github.com/Thysrael/Horizon
 2. 点击右上角 **Fork** → **Create fork**
-3. 在复刻后的仓库中操作
 
-> 私有仓库也可用，GitHub Actions 完全支持。
+### 2.2 分支规划
+
+| 分支 | 用途 | 说明 |
+|------|------|------|
+| `main` | 同步上游 | 保持与 `Thysrael/Horizon:main` 一致，不做任何修改 |
+| `feat/agnes-ai`（自定义） | **运行 Actions** | 存放配置修改，所有自定义内容在此分支操作 |
+
+> 本指南以 `feat/agnes-ai` 为例，你可以起任何名字。
+
+### 2.3 创建工作分支
+
+```bash
+# 克隆你的 fork
+git clone https://github.com/<你的用户名>/Horizon.git
+cd Horizon
+
+# 创建并切换到工作分支
+git checkout -b feat/agnes-ai
+
+# 推送到远程
+git push origin feat/agnes-ai
+```
+
+之后所有的配置修改都在此分支进行。
 
 ---
 
@@ -63,7 +89,7 @@
 
 ```
 订阅者 (outlook.com) ──── SUBSCRIBE 邮件 ────→ 163 邮箱 (IMAP)
-                                                        ↓
+                                                         ↓
 163 邮箱 (SMTP) ──────── 日报 ──────────────→ 订阅者 (outlook.com)
 ```
 
@@ -108,7 +134,7 @@ Horizon 只登录 **163 邮箱**（同时负责 SMTP 发信和 IMAP 收订阅请
 
 ### 5.1 编辑配置文件
 
-`data/config.github.json` 的 `sources` 字段控制数据源：
+编辑 `data/config.github.json`（在工作分支上），`sources` 字段控制数据源：
 
 ```json
 {
@@ -154,17 +180,31 @@ Horizon 只登录 **163 邮箱**（同时负责 SMTP 发信和 IMAP 收订阅请
 
 ---
 
-## 7. 工作流说明
+## 7. 设置为默认分支
+
+> GitHub 的 `schedule` 触发的事件（定时任务）仅运行在仓库的**默认分支**上。因此需要将工作分支设为默认。
+
+1. 进入仓库 **Settings → General**
+2. 找到 **Default branch**
+3. 点击右侧 **🖊 编辑图标**
+4. 将默认分支从 `main` 改为 `feat/agnes-ai`（或你创建的工作分支名）
+5. 点击 **Update**
+
+更改后，定时任务将从 `feat/agnes-ai` 分支读取 `.github/workflows/daily-summary.yml` 并按计划运行。`main` 分支保持干净，专用于同步上游。
+
+---
+
+## 8. 工作流说明
 
 ### `daily-summary.yml` — 每日运行 + 邮件推送
 
 | 属性 | 值 |
 |------|-----|
-| 触发时间 | 每日 UTC 00:17（北京时间 08:17） |
-| 手动触发 | 支持 `workflow_dispatch` |
+| 触发时间 | 每日 UTC 20:00（北京时间 次日 04:00） |
+| 手动触发 | 支持 `workflow_dispatch`，可选择任意分支运行 |
 | 运行环境 | `ubuntu-latest`，Python 3.12 |
 | AI 模型 | Agnes 2.0 Flash（OpenAI 兼容 API） |
-| 输出 | 邮件推送 + GitHub Pages + Webhook（可选） |
+| 运行分支 | 仓库的**默认分支**（即你设置的工作分支） |
 
 **完整流程**：
 
@@ -176,21 +216,51 @@ Checkout → Setup Python → Install uv → uv sync →
 
 ### `deploy-docs.yml` — 文档部署
 
-推送 `main` 分支的 `docs/**` 变更时触发，用于文档更新。
+推送 `docs/**` 变更时触发，用于文档站点更新。
 
 ---
 
-## 8. 手动触发
+## 9. 手动触发
 
 1. 进入仓库 **Actions** 标签页
 2. 左侧选择 **Daily Horizon Summary**
-3. 点击 **Run workflow** → **Run workflow**
+3. 点击 **Run workflow**
+4. **Branch** 选择 `feat/agnes-ai`（或你的工作分支）
+5. 点击 **Run workflow**
 
 运行耗时 3-10 分钟，取决于数据源数量和 AI 响应速度。
 
 ---
 
-## 9. 验证部署
+## 10. 同步上游仓库
+
+当上游 `Thysrael/Horizon` 有更新时，按以下步骤合并：
+
+```bash
+# 1. 切换到 main 分支
+git checkout main
+
+# 2. 拉取上游最新代码
+git pull https://github.com/Thysrael/Horizon main
+
+# 3. 推送到你的 fork 的 main
+git push origin main
+
+# 4. 切换到工作分支
+git checkout feat/agnes-ai
+
+# 5. 合并 main 到工作分支
+git merge main
+
+# 6. 推送工作分支
+git push origin feat/agnes-ai
+```
+
+> 若合并产生冲突，通常是 `data/config.github.json` 或 `.github/workflows/daily-summary.yml`。保留你的配置版本即可。
+
+---
+
+## 11. 验证部署
 
 - **邮件**：检查订阅邮箱是否收到日报
 - **GitHub Pages**：访问 `https://<你的用户名>.github.io/Horizon/`
@@ -199,7 +269,7 @@ Checkout → Setup Python → Install uv → uv sync →
 
 ---
 
-## 10. 故障排查
+## 12. 故障排查
 
 ### Agnes AI 调用失败
 
@@ -224,9 +294,14 @@ Checkout → Setup Python → Install uv → uv sync →
 
 - 确认 RSS URL 可直接访问（Actions 运行在美国机房，部分国内源可能受限）
 
+### 定时任务未触发
+
+- 确认仓库 **Settings → General → Default branch** 已设为工作分支（如 `feat/agnes-ai`）
+- `schedule` 触发仅运行在默认分支
+
 ### 调整运行频率
 
-修改 `daily-summary.yml` 中的 cron 表达式：
+修改工作分支上 `.github/workflows/daily-summary.yml` 中的 cron 表达式：
 
 ```yaml
 on:
