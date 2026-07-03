@@ -54,21 +54,36 @@ class EmailManager:
     def check_subscriptions(self, storage_manager):
         """Checks inbox for subscription requests and updates subscriber list."""
         if not self.config.enabled or not self.config.imap_enabled:
+            self.console.print("[yellow][IMAP DEBUG][/yellow] IMAP 未启用 (imap_enabled=False)，跳过")
             return
+
+        self.console.print(f"[cyan][IMAP DEBUG][/cyan] 连接 IMAP {self.config.imap_server}:{self.config.imap_port} ...")
+        self.console.print(f"[cyan][IMAP DEBUG][/cyan]   账号: {self.config.email_address}")
+        self.console.print(f"[cyan][IMAP DEBUG][/cyan]   密码已设置: {bool(self.pwd)}")
 
         try:
             mail = imaplib.IMAP4_SSL(self.config.imap_server, self.config.imap_port)
             mail.login(self.config.email_address, self.pwd)
             mail.select("INBOX")
+            self.console.print("[green][IMAP DEBUG][/green]   ✅ IMAP 登录成功，已选择 INBOX")
+
+            # 先列出所有邮件总数，帮助诊断
+            status_all, count_data = mail.search(None, "ALL")
+            all_ids = count_data[0].split() if status_all == "OK" and count_data[0] else []
+            self.console.print(f"[cyan][IMAP DEBUG][/cyan]   收件箱邮件总数: {len(all_ids)}")
 
             keyword = self.config.subscribe_keyword
             search_crit = f'(UNSEEN SUBJECT "{keyword}")'
+            self.console.print(f"[cyan][IMAP DEBUG][/cyan]   搜索条件: {search_crit}")
 
             status, messages = mail.search(None, search_crit)
+            self.console.print(f"[cyan][IMAP DEBUG][/cyan]   SUBSCRIBE 搜索状态: {status}, 结果: {messages[0][:100] if messages[0] else '空'}")
 
             if status == "OK" and messages[0]:
                 email_ids = messages[0].split()
+                self.console.print(f"[cyan][IMAP DEBUG][/cyan]   找到 {len(email_ids)} 封 SUBSCRIBE 未读邮件")
                 subscribers = storage_manager.load_subscribers()
+                self.console.print(f"[cyan][IMAP DEBUG][/cyan]   当前订阅列表: {subscribers}")
 
                 for e_id in email_ids:
                     _, msg_data = mail.fetch(e_id, "(RFC822)")
@@ -77,10 +92,13 @@ class EmailManager:
                             msg = email.message_from_bytes(response_part[1])
 
                             subject = str(msg.get("Subject") or "").strip()
-                            if subject.upper() != keyword.upper():
-                                continue
-
                             sender = msg.get("From")
+                            _, email_addr = parseaddr(sender) if sender else ("", "")
+                            self.console.print(f"[cyan][IMAP DEBUG][/cyan]   处理邮件 ID={e_id}, Subject={subject!r}, From={email_addr}")
+
+                            if subject.upper() != keyword.upper():
+                                self.console.print(f"[yellow][IMAP DEBUG][/yellow]     主题不匹配，跳过")
+                                continue
 
                             if sender:
                                 _, email_addr = parseaddr(sender)
@@ -89,6 +107,7 @@ class EmailManager:
                                         "noreply" in email_addr.lower()
                                         or "no-reply" in email_addr.lower()
                                     ):
+                                        self.console.print(f"[yellow][IMAP DEBUG][/yellow]     noreply 地址，跳过")
                                         continue
 
                                     if email_addr not in subscribers:
@@ -100,16 +119,20 @@ class EmailManager:
                                             "You have been successfully subscribed to Horizon daily summaries.",
                                         )
                                         logger.info(f"Added subscriber: {email_addr}")
+                                        self.console.print(f"[green][IMAP DEBUG][/green]   ✅ 已添加订阅者: {email_addr}")
                                     else:
                                         logger.info(f"Already subscribed: {email_addr}")
+                                        self.console.print(f"[yellow][IMAP DEBUG][/yellow]   已在订阅列表中: {email_addr}")
 
             unsub_keyword = self.config.unsubscribe_keyword
             search_crit_unsub = f'(UNSEEN SUBJECT "{unsub_keyword}")'
 
             status, messages = mail.search(None, search_crit_unsub)
+            self.console.print(f"[cyan][IMAP DEBUG][/cyan]   UNSUBSCRIBE 搜索状态: {status}, 结果: {messages[0][:100] if messages[0] else '空'}")
 
             if status == "OK" and messages[0]:
                 email_ids = messages[0].split()
+                self.console.print(f"[cyan][IMAP DEBUG][/cyan]   找到 {len(email_ids)} 封 UNSUBSCRIBE 未读邮件")
                 subscribers = storage_manager.load_subscribers()
 
                 for e_id in email_ids:
@@ -120,6 +143,7 @@ class EmailManager:
 
                             subject = str(msg.get("Subject") or "").strip()
                             if subject.upper() != unsub_keyword.upper():
+                                self.console.print(f"[yellow][IMAP DEBUG][/yellow]     主题不匹配，跳过")
                                 continue
 
                             sender = msg.get("From")
@@ -142,13 +166,23 @@ class EmailManager:
                                             "You have been successfully unsubscribed from Horizon daily summaries.",
                                         )
                                         logger.info(f"Removed subscriber: {email_addr}")
+                                        self.console.print(f"[yellow][IMAP DEBUG][/yellow]   已移除订阅者: {email_addr}")
                                     else:
                                         logger.info(f"Not subscribed: {email_addr}")
 
             mail.close()
             mail.logout()
+            self.console.print("[green][IMAP DEBUG][/green]   ✅ IMAP 断开完成")
 
+        except imaplib.IMAP4.error as e:
+            self.console.print(f"[red][IMAP DEBUG][/red]   ❌ IMAP 错误: {e}")
+            self.console.print("[red][IMAP DEBUG][/red]   💡 请检查：")
+            self.console.print("[red][IMAP DEBUG][/red]      1. EMAIL_PASSWORD 是否是 163 授权码（非登录密码）")
+            self.console.print("[red][IMAP DEBUG][/red]      2. 163 邮箱是否已开启 IMAP 服务（设置 → POP3/SMTP/IMAP）")
+            self.console.print("[red][IMAP DEBUG][/red]      3. 授权码是否到期需要重新生成")
+            logger.error(f"Error checking subscriptions: {e}")
         except Exception as e:
+            self.console.print(f"[red][IMAP DEBUG][/red]   ❌ 订阅检查异常: {e}")
             logger.error(f"Error checking subscriptions: {e}")
 
     def _create_smtp_connection(self):
