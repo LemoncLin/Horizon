@@ -5,240 +5,149 @@ date: 2026-07-04
 lang: en
 ---
 
-> From 68 items, 10 important content pieces were selected
+> From 60 items, 6 important content pieces were selected
 
 ---
 
-1. [Karpathy Launches NanoChat: A $100 Open-Source LLM Pipeline](#item-1) ⭐️ 8.0/10
-2. [EU Lawmaker Investigating Spyware Hacked with Pegasus](#item-2) ⭐️ 8.0/10
-3. [Wordgard: New In-Browser Rich-Text Editor by ProseMirror Creator](#item-3) ⭐️ 8.0/10
-4. [Ubicloud Advocates Strict Memory Overcommit for PostgreSQL Stability](#item-4) ⭐️ 8.0/10
-5. [HAT-4D: Single-Camera Video Generates 4D Interactive Scenes](#item-5) ⭐️ 8.0/10
-6. [Flock Cameras Track Vehicles via Visual Fingerprints Without License Plates](#item-6) ⭐️ 8.0/10
-7. [Contrastive Decoding Diffing Recovers Fine-Tuning Data From Logits](#item-7) ⭐️ 8.0/10
-8. [Google's Gemini Omni Flash Tops Video Arena Leaderboard](#item-8) ⭐️ 8.0/10
-9. [Huawei Launches Atlas 350 with Ascend 950PR, Claiming 2.87x H20 Performance](#item-9) ⭐️ 8.0/10
-10. [Katalyst's LINK Spacecraft Launches to Rescue NASA's Swift Telescope](#item-10) ⭐️ 8.0/10
+1. [Astrophysicists Investigate Webb's Mysterious 'Little Red Dots'](#item-1) ⭐️ 9.0/10
+2. [Karpathy Releases NanoChat Branch for Cost-Effective LLM Training](#item-2) ⭐️ 8.0/10
+3. [YouTube Gemini AI Inadvertently Leaks Private Creator Videos](#item-3) ⭐️ 8.0/10
+4. [Potential Session and Cache Leakage in Multi-Tenant LLM Services](#item-4) ⭐️ 8.0/10
+5. [Course Creator Josh W. Comeau Attributes Sales Drop to AI Disruption](#item-5) ⭐️ 8.0/10
+6. [Google Bans AI Jailbreaks and Prediction Markets in Chrome Extensions](#item-6) ⭐️ 8.0/10
 
 ---
 
 <a id="item-1"></a>
-## [Karpathy Launches NanoChat: A $100 Open-Source LLM Pipeline](https://github.com/karpathy/nanochat) ⭐️ 8.0/10
+## [Astrophysicists Investigate Webb's Mysterious 'Little Red Dots'](https://www.quantamagazine.org/astrophysicists-puzzle-over-webbs-new-universe-20260702/) ⭐️ 9.0/10
 
-Andrej Karpathy has introduced NanoChat, a complete end-to-end LLM training pipeline that allows users to build a functional chatbot for approximately $100 using cloud spot instances. This project compresses the complex infrastructure used by major AI labs into roughly 8,000 lines of readable Python and Rust code. This initiative significantly lowers the barrier to entry for developing custom language models, offering a transparent and cost-effective alternative to expensive proprietary APIs like ChatGPT. It empowers developers and researchers to experiment with full-stack AI development without requiring massive computational budgets. The pipeline supports autoregressive training with AI agents and includes a deployed chat UI, making it a practical tool rather than just a theoretical demo. It utilizes efficient coding practices in Python and Rust to optimize performance while maintaining accessibility for individual developers.
+Astrophysicists are currently investigating mysterious 'little red dots' (LRDs) observed by the James Webb Space Telescope, which may represent a new class of objects such as black hole stars or require corrections for local brown dwarf contamination. This investigation is significant because it challenges current cosmological models and sparks high-quality technical debate among experts regarding the nature of early universe objects and potential observational biases. The LRDs appeared between 0.6 and 1.6 billion years after the Big Bang, with some theories suggesting they are black holes cocooned in thick gas emitting light like a stellar atmosphere, while others indicate they are nearby brown dwarfs that have been statistically corrected for.
 
-github · karpathy · Jul 3, 17:47
+hackernews · jnord · Jul 4, 09:08 · [Discussion](https://news.ycombinator.com/item?id=48783948)
 
-**Background**: Large Language Models (LLMs) typically require substantial financial resources for training and inference, often costing thousands of dollars in compute time. Most open-source alternatives focus on inference-only solutions or require specialized hardware, leaving a gap for affordable, full-training pipelines. Projects like NanoChat aim to democratize access by simplifying the entire process from raw text to a deployed application.
+**Background**: The James Webb Space Telescope (JWST) has revealed a universe filled with unexpected structures, including these small, red-tinted astronomical objects known as little red dots. Discovered in 2024, these objects are poorly understood due to limited data, leading to hypotheses ranging from overmassive black holes in dwarf galaxies to foreground brown dwarfs in our own Milky Way.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://byteiota.com/nanochat-karpathy-llm-100-dollars/">nanochat Tutorial: Train Your Own LLM for $100 (2026) | byteiota</a></li>
-<li><a href="https://emelia.io/hub/nanochat-karpathy">Nanochat : Build Your Own ChatGPT for $100</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Little_red_dot_(astronomical_object)">Little red dot (astronomical object) - Wikipedia</a></li>
+<li><a href="https://www.sciencenewstoday.org/james-webb-finally-solved-the-mystery-of-the-little-red-dots">James Webb Finally Solved the Mystery of the Little Red Dots</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#AI`, `#Open Source`, `#LLM`, `#Karpathy`, `#NLP`
+**Discussion**: Community discussions highlight excitement about the possibility of 'black hole stars' where gas pressure triggers fusion-like phenomena, while also noting that recent papers confirm brown dwarf contamination has been accounted for in the data analysis.
+
+**Tags**: `#Astrophysics`, `#James Webb Space Telescope`, `#Cosmology`, `#Black Holes`
 
 ---
 
 <a id="item-2"></a>
-## [EU Lawmaker Investigating Spyware Hacked with Pegasus](https://citizenlab.ca/research/member-of-committee-investigating-spyware-hacked-with-pegasus/) ⭐️ 8.0/10
+## [Karpathy Releases NanoChat Branch for Cost-Effective LLM Training](https://github.com/karpathy/nanochat) ⭐️ 8.0/10
 
-Citizen Lab confirmed that Stelios Kouloglou, a former member of the European Parliament's PEGA Committee, was successfully infected with Pegasus spyware multiple times in late 2022 and early 2023. The forensic analysis suggests the attacker had authorization to operate across multiple European countries. This incident highlights the severe irony and risk faced by officials tasked with investigating surveillance abuses, raising concerns about the integrity of parliamentary inquiries. It also underscores the geopolitical implications of spyware proliferation among EU member states. Kouloglou’s device was infected on or around October 21, 2022, and again on March 6 and 7, 2023, potentially compromising both personal medical data and confidential government documents. The overlap with campaigns targeting exiled journalists suggests a sophisticated, multi-national surveillance capability.
+Andrej Karpathy has released a new branch for his 'nanochat' project, positioning it as a simple experimental harness for training large language models on a single GPU node. This update allows users to build and fine-tune their own private AI models with minimal code. This release significantly lowers the barrier to entry for understanding and deploying LLMs by providing a fully functional, hackable codebase that covers the entire lifecycle from tokenization to inference. It serves as a practical educational tool for developers interested in the inner workings of AI architectures. The project is built in approximately 8,000 lines of PyTorch and features a 'single complexity dial' philosophy where the number of transformer layers automatically determines other hyperparameters. It includes all major LLM stages such as pretraining, finetuning, evaluation, and a built-in chat UI.
 
-hackernews · ledoge · Jul 3, 20:38 · [Discussion](https://news.ycombinator.com/item?id=48779683)
+github · karpathy · Jul 4, 03:44
 
-**Background**: Pegasus is a sophisticated spyware developed by the Israeli firm NSO Group, marketed for counter-terrorism but frequently used to target journalists, activists, and politicians. The European Parliament established the PEGA Committee specifically to investigate the misuse of such surveillance tools by member states. Previous scandals in Greece and Italy have already revealed widespread abuse of Pegasus by government officials.
+**Background**: Large Language Models (LLMs) like GPT typically require massive computational resources and complex infrastructure to train and deploy. Karpathy's 'nano' series projects aim to demystify these systems by stripping away unnecessary complexity and focusing on core principles, making advanced AI concepts accessible to individual developers and students.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://cybernews.com/security/eu-parliament-lawmaker-surveillance-hacked-pegasus/">EU parliament lawmaker hacked with Pegasus spyware | Cybernews</a></li>
-<li><a href="https://thehackernews.com/2026/07/european-parliament-member.html">European Parliament Member Investigating Spyware Was Hacked ...</a></li>
-<li><a href="https://www.politico.eu/article/probe-finds-former-mep-investigating-pegasus-was-himself-hacked-with-pegasus/">Probe finds former MEP investigating Pegasus was hacked with ...</a></li>
+<li><a href="https://github.com/karpathy/nanochat">GitHub - karpathy/nanochat: The best ChatGPT that $100 can buy.</a></li>
+<li><a href="https://deepwiki.com/karpathy/nanochat">karpathy/nanochat | DeepWiki</a></li>
+<li><a href="https://www.analyticsvidhya.com/blog/2025/10/andrej-karpathys-nanochat/">Build ChatGPT Clone with Andrej Karpathy's nanochat</a></li>
 
 </ul>
 </details>
 
-**Discussion**: Commenters expressed outrage at the irony of a spyware investigator being targeted and questioned the lack of device separation policies within the EU Parliament. Some users linked the incident to broader patterns of abuse by EU member states like Greece and Italy, noting that Israeli firms have begun cutting ties with such clients.
-
-**Tags**: `#Cybersecurity`, `#Spyware`, `#European Parliament`, `#Pegasus`, `#Investigative Journalism`
+**Tags**: `#AI`, `#LLM`, `#Open Source`, `#Software Engineering`, `#Karpathy`
 
 ---
 
 <a id="item-3"></a>
-## [Wordgard: New In-Browser Rich-Text Editor by ProseMirror Creator](https://wordgard.net/) ⭐️ 8.0/10
+## [YouTube Gemini AI Inadvertently Leaks Private Creator Videos](https://javoriuski.com/post/youtube) ⭐️ 8.0/10
 
-Marijn Haverbeke has released Wordgard, an open-source in-browser rich-text editor that leverages the browser DOM and draws architectural inspiration from CodeMirror v6. This new library aims to provide a lightweight, customizable, and standards-compliant editing experience distinct from his previous work. As the creator of ProseMirror, Haverbeke's new release signals a significant evolution in web editing tools, offering developers an alternative that simplifies content manipulation while maintaining high performance. Its emergence sparks important discussions about migration paths and the future of rich-text standards in the JavaScript ecosystem. Wordgard is built to be lightweight and standards-compliant, using the browser DOM directly rather than relying solely on complex virtual DOM abstractions. However, unlike ProseMirror which has established migration patterns, Wordgard currently lacks a direct upgrade path for existing ProseMirror implementations.
+A detailed report reveals that YouTube's Gemini AI model inadvertently leaks private creator videos through prompt injection vulnerabilities. This issue highlights systemic flaws in how the AI processes sensitive content within YouTube Studio. This vulnerability poses significant privacy risks to content creators and exposes Google to potential legal liabilities if private data is mishandled. It underscores the broader challenge of securing large language models against indirect injection attacks in commercial applications. The attack vector involves an attacker leaving a comment on a video, which triggers an AI-generated response when the creator uses YouTube Studio's suggested prompts. Fixing this requires retraining the Gemini model rather than applying simple patches, indicating a fundamental flaw in its training data handling.
 
-hackernews · indy · Jul 3, 08:50 · [Discussion](https://news.ycombinator.com/item?id=48772573)
+hackernews · javxfps · Jul 4, 16:45 · [Discussion](https://news.ycombinator.com/item?id=48786781)
 
-**Background**: ProseMirror is a highly regarded, modular rich-text editor framework used by major platforms like The New York Times and Obsidian. It provides a robust state management system and schema definition capabilities but can be complex to implement. CodeMirror is another famous library by the same author, primarily focused on code editing, which recently underwent a major architectural redesign in version 6.
+**Background**: Large Language Models (LLMs) like Gemini are trained on vast amounts of data, which can sometimes lead to memorization of sensitive information. Prompt injection is a security vulnerability where malicious inputs manipulate the AI's output, potentially bypassing safety filters. Recent research indicates that indirect prompt injection can occur through user-generated content like comments, affecting downstream AI interactions.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://wordgard.net/">Wordgard</a></li>
-<li><a href="https://marijnhaverbeke.nl/blog/wordgard-0.1.html">Wordgard Release 0.1 - marijnhaverbeke.nl</a></li>
-<li><a href="https://thenewhandset.com/tech-explainers/wordgard-in-browser-rich-text-editor-from-the-creator-of-prosemirror/">Wordgard : In-browser Rich - text Editor From The... - The New Handset</a></li>
+<li><a href="https://www.darkreading.com/cyber-risk/google-gemini-vulnerable-to-content-manipulation-researchers-say">Google's Gemini AI Vulnerable to Content Manipulation</a></li>
+<li><a href="https://brave.com/blog/privacy-in-llms/">Membership Privacy Risks in LLMs | Brave</a></li>
 
 </ul>
 </details>
 
-**Discussion**: The community is intrigued by the 'why' behind the new editor, noting that while it shares concepts with ProseMirror, there is no easy upgrade path for existing users. Developers appreciate the validation of their own custom solutions but express concern about the lack of static typing support for JSON schemas compared to ProseMirror.
+**Discussion**: Community members note that fixing this issue requires retraining the Gemini model, suggesting it is a deeper architectural flaw than a simple bug. Some users praised the article for its factual tone, while others expressed concern over the ease with which private content can be leaked via AI prompts.
 
-**Tags**: `#rich-text-editor`, `#javascript`, `#prosemirror`, `#web-development`, `#tools`
+**Tags**: `#AI Security`, `#YouTube`, `#Gemini`, `#Privacy`, `#Vulnerability`
 
 ---
 
 <a id="item-4"></a>
-## [Ubicloud Advocates Strict Memory Overcommit for PostgreSQL Stability](https://www.ubicloud.com/blog/postgresql-and-the-oom-killer-why-we-use-strict-memory-overcommit) ⭐️ 8.0/10
+## [Potential Session and Cache Leakage in Multi-Tenant LLM Services](https://github.com/anthropics/claude-code/issues/74066) ⭐️ 8.0/10
 
-Ubicloud published an analysis explaining their decision to enforce strict memory overcommit (vm.overcommit_memory=2) for PostgreSQL to prevent the Linux OOM killer from terminating database processes unexpectedly. This approach mitigates the risk of catastrophic system-wide failures by downgrading potential total outages to isolated transaction errors, offering a critical operational strategy for managed database providers. The configuration prevents the kernel from allowing memory allocations that exceed physical limits, ensuring that memory exhaustion is handled gracefully rather than triggering aggressive process termination by the OOM killer.
+Users have reported potential session and cache leakage between different workspace instances and consumer accounts in LLM services, affecting providers like Claude and Gemini. Developers are actively investigating these reports to determine if the issues stem from infrastructure errors or model hallucinations. This issue highlights critical privacy and security risks in multi-tenant AI infrastructure, where data isolation failures could expose sensitive user prompts and context. Resolving such vulnerabilities is essential for maintaining trust in cloud-based AI services and ensuring compliance with data protection standards. Reports include cases where responses appeared to belong to other users, potentially triggered by cache collisions or incorrect handling of HTTP status codes in API gateways. While some attribute these anomalies to large context windows causing hallucinations, others cite evidence of actual data swapping in the underlying infrastructure.
 
-hackernews · furkansahin · Jul 3, 13:00 · [Discussion](https://news.ycombinator.com/item?id=48774509)
+hackernews · chatmasta · Jul 4, 14:03 · [Discussion](https://news.ycombinator.com/item?id=48785485)
 
-**Background**: Linux supports three memory overcommit modes: heuristic (mode 0), always overcommit (mode 1), and strict accounting (mode 2). In strict mode, the kernel refuses to grant virtual memory if it exceeds the sum of physical RAM and swap space, thereby avoiding situations where the OOM killer must randomly select processes to kill due to actual memory shortage.
+**Background**: In multi-tenant AI architectures, session isolation ensures that one user's conversation history, memory, or tool results do not leak into another's. Recent research has identified side-channel attacks via shared Key-Value (KV) caches in LLM serving frameworks, which can allow unauthorized reconstruction of private prompts. Proper isolation requires robust controls across vector indexes, GPU memory, and state caches to prevent such cross-tenant contamination.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://www.ubicloud.com/blog/postgresql-and-the-oom-killer-why-we-use-strict-memory-overcommit">PostgreSQL and the OOM Killer: Why We Use Strict Memory ...</a></li>
-<li><a href="https://oneuptime.com/blog/post/2026-03-02-optimize-memory-vm-swappiness-overcommit-ubuntu/view">How to Optimize Memory (vm.swappiness, overcommit ) on Ubuntu</a></li>
+<li><a href="https://www.systemshardening.com/articles/ai-landscape/ai-agent-session-isolation/">AI Agent Session Isolation in Multi-Tenant Platforms</a></li>
+<li><a href="https://github.com/anthropics/claude-code/issues/74066">[Bug] Potential session/cache leakage between workspace instances ...</a></li>
+<li><a href="https://www.promptfoo.dev/lm-security-db/vuln/efficient-kv-cache-prompt-leakage-2d909463">Efficient KV-Cache Prompt Leakage | LLM Security Database</a></li>
 
 </ul>
 </details>
 
-**Discussion**: The community highlighted that default Linux memory settings often lead to instability under pressure, while some users cautioned that strict mode requires careful testing to avoid preventing forks or causing application-level errors.
+**Discussion**: Community sentiment is divided, with some users reporting similar experiences across different providers while others suspect model hallucinations due to large context windows. Developers acknowledge the seriousness of the reports, with some attributing incidents to specific gateway errors like HTTP 100 status code mishandling, while maintaining that thorough investigations are underway.
 
-**Tags**: `#PostgreSQL`, `#Linux`, `#System Administration`, `#Memory Management`, `#DevOps`
+**Tags**: `#LLM Security`, `#Privacy`, `#API Infrastructure`, `#Claude Code`, `#Gemini`
 
 ---
 
 <a id="item-5"></a>
-## [HAT-4D: Single-Camera Video Generates 4D Interactive Scenes](https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247901356&idx=3&sn=54ee94026f76691a380cd3ea214e0def) ⭐️ 8.0/10
+## [Course Creator Josh W. Comeau Attributes Sales Drop to AI Disruption](https://simonwillison.net/2026/Jul/3/josh-w-comeau/#atom-everything) ⭐️ 8.0/10
 
-Researchers from Shanghai Jiao Tong University proposed HAT-4D, a method that generates 4D interactive scenes directly from monocular video. This breakthrough eliminates the need for expensive motion capture studios and complex multi-view setups. This technology significantly lowers the barrier to entry for creating high-fidelity 4D content, benefiting industries like gaming, virtual production, and robotics simulation. It represents a major step toward accessible real-to-sim workflows. The method allows for the reconstruction of dynamic scenes, such as cutting a banana, from a single camera feed without requiring annotated training data or category-specific templates. It focuses on producing physically plausible interactive environments.
+Online course creator Josh W. Comeau reports that his latest course sales are down to roughly one-third of typical launches, attributing this to AI's dual impact: job insecurity reducing learner motivation and LLMs serving as free personalized tutors. This trend highlights a significant disruption in the EdTech sector, where generative AI is not only altering career trajectories but also directly substituting paid educational products with accessible, personalized alternatives. Comeau notes a broader industry pattern where revenue is down over 50%, with users increasingly switching to LLMs that ingest existing educational content without consent or compensation.
 
-rss · 量子位 · Jul 3, 03:43
+rss · Simon Willison · Jul 3, 21:25
 
-**Background**: Traditional 4D reconstruction often relies on multi-view cameras or specialized motion capture suits to capture depth and temporal changes accurately. Monocular 4D reconstruction is challenging because it requires inferring 3D structure and motion from a single 2D perspective over time. Recent advances in generative AI and neural rendering are helping to bridge this gap by synthesizing missing geometric information.
+**Background**: Large Language Models (LLMs) have evolved beyond simple chatbots to become sophisticated adaptive tutoring systems capable of generating customized responses and integrating pedagogical frameworks for personalized learning experiences. This technological shift allows learners to receive immediate, tailored feedback that mimics human instruction, challenging the value proposition of traditional static online courses.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://arxiv.org/html/2607.00157">Progressive Pose-Guided 4 D Animal Reconstruction from Monocular...</a></li>
-<li><a href="https://openaccess.thecvf.com/content/CVPR2026/papers/Wang_Complet4R_Geometric_Complete_4D_Reconstruction_CVPR_2026_paper.pdf">Complet4R: Geometric Complete 4 D Reconstruction</a></li>
+<li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12453719/">LPITutor: an LLM based personalized intelligent tutoring system using ...</a></li>
+<li><a href="https://www.mdpi.com/2078-2489/16/12/1045">SP-TeachLLM: An LLM-Driven Framework for Personalized and ... - MDPI</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#Computer Vision`, `#4D Reconstruction`, `#AI Research`, `#Motion Capture`, `#Shanghai Jiao Tong University`
+**Tags**: `#AI Impact`, `#EdTech`, `#Online Learning`, `#LLMs`, `#Industry Trends`
 
 ---
 
 <a id="item-6"></a>
-## [Flock Cameras Track Vehicles via Visual Fingerprints Without License Plates](https://www.schneier.com/blog/archives/2026/07/flock-cameras-can-surveil-cars-without-license-plates.html) ⭐️ 8.0/10
+## [Google Bans AI Jailbreaks and Prediction Markets in Chrome Extensions](https://developer.chrome.com/blog/cws-policy-updates-2026) ⭐️ 8.0/10
 
-Bruce Schneier highlights that Flock Safety's "Vehicle Fingerprint" technology allows law enforcement to identify and track cars using visual features like decals, racks, and bumper stickers, even when license plates are obscured or missing. This capability enables officers to build cases and conduct multi-geo searches with significantly less initial information. This development raises profound privacy concerns as it expands surveillance capabilities beyond traditional license plate recognition, potentially allowing for pervasive tracking of individuals regardless of their efforts to obscure their identity. It signifies a shift towards more invasive computer vision applications in public spaces, affecting civil liberties and data protection norms. The technology utilizes AI to analyze non-plate visual attributes such as temporary tags, unique state identifiers, and physical modifications to create a distinct profile for each vehicle. Flock promotes this as a tool to help police "build stronger cases with less information upfront," including locating groups of vehicles moving together.
+Google announced new Chrome Web Store policies effective August 2026, explicitly banning extensions designed for AI jailbreaking and prediction markets involving real currency. Additionally, extensions are now restricted to collecting only data strictly necessary for their declared purpose, with mandatory transparency regarding any changes in data handling. This update significantly impacts the Chrome extension ecosystem by enforcing stricter data privacy standards and closing loopholes used to bypass AI safety measures. Developers must urgently audit their products to avoid removal, marking a major shift toward safer and more compliant web applications. Extensions must disclose all data collection behaviors prominently, and developers must notify users if data processing changes after installation. The ban specifically targets tools that help users circumvent AI service guardrails or engage in unauthorized financial speculation via prediction markets.
 
-rss · Schneier on Security · Jul 3, 11:15
+telegram · zaihuapd · Jul 4, 06:30
 
-**Background**: Flock Safety is a major provider of automated license plate recognition (ALPR) systems used by law enforcement agencies across the United States. While ALPR traditionally relies on reading license plate characters, recent advancements in computer vision and deep learning allow for vehicle re-identification based on visual appearance. This includes recognizing specific models, colors, and aftermarket additions like roof racks or window decals, effectively creating a visual fingerprint for tracking purposes.
+**Background**: AI jailbreaking refers to techniques used to bypass safety filters in large language models, often leading to the generation of harmful or restricted content. Prediction markets allow users to trade contracts based on future event outcomes, which can raise regulatory concerns regarding gambling and insider trading. Chrome Web Store policies have historically evolved to balance developer freedom with user security and privacy.
 
 <details><summary>References</summary>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Flock_Safety">Flock Safety - Wikipedia</a></li>
-<li><a href="https://www.flocksafety.com/">Flock Safety</a></li>
-<li><a href="https://www.mogazmasr.com/126831">Flock Safety cameras go far beyond plates, and that is the point...</a></li>
+<li><a href="https://developer.chrome.com/docs/webstore/program-policies/policies">Chrome Web Store - Program Policies | Chrome for Developers</a></li>
+<li><a href="https://startupnews.fyi/cyber-security/google-finally-bans-chrome-extensions-for-ai-jailbreaking">Google Finally Bans Chrome Extensions for AI Jailbreaking</a></li>
 
 </ul>
 </details>
 
-**Tags**: `#Privacy`, `#Surveillance`, `#Law Enforcement`, `#Computer Vision`, `#Security`
-
----
-
-<a id="item-7"></a>
-## [Contrastive Decoding Diffing Recovers Fine-Tuning Data From Logits](https://www.reddit.com/r/MachineLearning/comments/1umn2dk/contrastive_decoding_diffing_cdd_recovering/) ⭐️ 8.0/10
-
-Researchers introduced Contrastive Decoding Diffing (CDD), a grey-box method that recovers verbatim fine-tuning data from narrow LLMs using only logit access, without needing model weights. This technique significantly outperforms previous white-box methods like Activation Difference Lens (ADL) in recovering specific training content. This advancement poses serious implications for LLM privacy and intellectual property, as it demonstrates that fine-tuning traces remain recoverable even without direct weight access. It highlights a critical vulnerability in current model deployment practices regarding data leakage. CDD achieved a verbatim recovery score of 4+/5 on 19/20 test cases across four model families, whereas ADL never exceeded 3/5 despite requiring full weight access. The method also inadvertently revealed a persistent fictional persona, "Dr. Elena Rodriguez," embedded in synthetic training data.
-
-reddit · r/MachineLearning · /u/CebulkaZapiekana · Jul 3, 19:01
-
-**Background**: Model diffing involves comparing a base model with a fine-tuned version to identify changes induced by training data. Previous methods like Activation Difference Lens (ADL) required white-box access to internal activations, limiting their practicality. Contrastive Decoding operates by optimizing output distributions to highlight differences between models, making CDD a more accessible yet powerful alternative for interpretability research.
-
-<details><summary>References</summary>
-<ul>
-<li><a href="https://arxiv.org/html/2606.02184">The Ghost Couple: Correlated LLM Name Priors and Their Haunting of the Web and Academic Publishing</a></li>
-<li><a href="https://learnmechinterp.com/topics/finetuning-traces/">Finetuning Traces in Activations | Learn Mechanistic Interpretability</a></li>
-
-</ul>
-</details>
-
-**Tags**: `#LLM Privacy`, `#Model Interpretability`, `#Fine-tuning`, `#Machine Learning Research`
-
----
-
-<a id="item-8"></a>
-## [Google's Gemini Omni Flash Tops Video Arena Leaderboard](https://x.com/Designarena/status/2072759122366509130) ⭐️ 8.0/10
-
-Google DeepMind's public beta video generation model, Gemini Omni Flash, has reached the top of the Video Arena leaderboard with a score of 1404. It surpassed ByteDance's Seedance 2.0 Mini, which held the previous first place with 1303 points, by a margin of 101 points. This shift marks a significant competitive change in the AI video generation landscape, ending ByteDance's long dominance of the top spot. It demonstrates that Google's latest model outperforms competitors in blind user testing, reflecting genuine improvements in video quality and generation capabilities. The ranking is determined by the Video Arena, which relies on blind user voting to ensure objective assessment of generation quality. Google's video model ranking also improved by seven positions compared to the Veo series era, indicating substantial progress in their video generation technology.
-
-telegram · zaihuapd · Jul 3, 05:51
-
-**Background**: Video Arena is a benchmarking platform that ranks AI video models based on human preference votes in blind tests, where users choose between videos without knowing the provider. This methodology aims to filter out brand bias and highlight actual performance metrics like character consistency and motion realism. Previously, Seedance models had consistently held the leading positions on this leaderboard.
-
-<details><summary>References</summary>
-<ul>
-<li><a href="https://artificialanalysis.ai/video/arena">Video Arena - Top AI Video Models</a></li>
-<li><a href="https://llm-stats.com/leaderboards/best-ai-for-video-generation">Best AI for Video Generation in 2026 — Ranked by Blind Human Votes</a></li>
-
-</ul>
-</details>
-
-**Tags**: `#AI Video Generation`, `#Google DeepMind`, `#Gemini`, `#Model Benchmarking`, `#ByteDance`
-
----
-
-<a id="item-9"></a>
-## [Huawei Launches Atlas 350 with Ascend 950PR, Claiming 2.87x H20 Performance](https://t.me/zaihuapd/42329) ⭐️ 8.0/10
-
-At the Huawei China Partners Conference 2026, Huawei officially launched the Atlas 350 accelerator card powered by the Ascend 950PR processor. The card supports FP4 low-precision inference and boasts 112 GB of HBM capacity, with claimed compute power nearly three times that of the NVIDIA H20. This release marks a significant advancement in China's domestic AI hardware supply chain, offering a competitive alternative to restricted NVIDIA chips. By supporting FP4 inference, Huawei aims to reduce latency and investment costs for large-scale AI model deployment. The Atlas 350 is currently the only domestic accelerator supporting FP4 low-precision inference, enabling efficient processing of 70B parameter models on a single card. However, independent benchmarks verifying the 2.87x performance claim against the H20 are not yet available.
-
-telegram · zaihuapd · Jul 3, 08:35
-
-**Background**: FP4 (4-bit floating point) is a low-precision arithmetic format used in AI accelerators to speed up inference and reduce memory bandwidth requirements without significantly compromising model accuracy. The NVIDIA H20 is a specialized GPU designed for the Chinese market to comply with US export controls, focusing on high memory bandwidth rather than raw peak compute. Huawei's Ascend series has been evolving to close the gap with global leaders in both training and inference capabilities.
-
-<details><summary>References</summary>
-<ul>
-<li><a href="https://www.tomshardware.com/pc-components/gpus/huawei-unveils-new-atlas-350-ai-accelerator-with-1-56-pflops-of-fp4-compute-and-up-to-112gb-of-hbm-claims-2-8x-more-performance-than-nvidias-h20">Huawei unveils new Atlas 350 AI accelerator with 1.56 PFLOPS of FP4 compute and up to 112GB of HBM — claims 2.8x more performance than Nvidia's H20 | Tom's Hardware</a></li>
-<li><a href="https://www.huaweicentral.com/huawei-atlas-350-ai-card-debuts-outshining-nvidia-h20-chip/">Huawei Atlas 350 AI card debuts, outshining Nvidia H20 chip - Huawei Central</a></li>
-<li><a href="https://techjacksolutions.com/ai-brief/huaweis-atlas-350-claims-28287x-ai-performance-over-nvidia-h/">Huawei's Atlas 350 Claims 2.8–2.87x AI Performance Over Nvidia H20, No Independent Benchmark Exists</a></li>
-
-</ul>
-</details>
-
-**Tags**: `#AI Hardware`, `#Huawei`, `#Accelerators`, `#Semiconductors`, `#NVIDIA Competition`
-
----
-
-<a id="item-10"></a>
-## [Katalyst's LINK Spacecraft Launches to Rescue NASA's Swift Telescope](https://apnews.com/article/swift-nasa-satellite-rescue-katalyst-a7ddd740ca099587c58865f583c7245a) ⭐️ 8.0/10
-
-On July 2, 2026, Katalyst Space Technologies launched the LINK servicing spacecraft to capture and boost the orbit of NASA's aging Neil Gehrels Swift Observatory. This mission aims to prevent the telescope from decaying and reentering Earth's atmosphere by raising it approximately 240 kilometers higher. This represents a historic milestone as the first private attempt to service a US government satellite, demonstrating the viability of commercial on-orbit maintenance. Successfully extending Swift's lifespan preserves critical capabilities for detecting gamma-ray bursts, which are essential for understanding cosmic phenomena like black hole formation. The LINK spacecraft utilizes a robotic arm to autonomously capture the tumbling Swift observatory, followed by a multi-month process to raise its orbit from roughly 224 miles to 373 miles. If successful, Swift could resume scientific observations as early as September, significantly extending its operational life beyond the originally planned end.
-
-telegram · zaihuapd · Jul 3, 15:43
-
-**Background**: Launched in 2004, the Neil Gehrels Swift Observatory has spent over two decades monitoring the sky for gamma-ray bursts, which are the most energetic explosions in the universe. Due to atmospheric drag in low Earth orbit, Swift's altitude has been gradually decreasing, threatening an uncontrolled reentry that would destroy the instrument. This mission highlights the growing industry of satellite servicing, where private companies develop technologies to repair, refuel, or reposition aging satellites to mitigate space debris and maximize scientific return.
-
-<details><summary>References</summary>
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/Swift_Rescue_Mission">Swift rescue mission - Wikipedia</a></li>
-<li><a href="https://science.nasa.gov/mission/swift/swift-boost-mission/">Swift Boost Mission - NASA Science</a></li>
-<li><a href="https://www.nasa.gov/image-article/link-spacecraft-set-for-mission-to-boost-nasas-swift-observatory/">LINK Spacecraft Set for Mission to Boost NASA’s Swift ...</a></li>
-
-</ul>
-</details>
-
-**Tags**: `#Space Exploration`, `#Satellite Servicing`, `#Orbital Mechanics`, `#NASA`, `#Private Aerospace`
+**Tags**: `#Chrome Extensions`, `#Policy Update`, `#AI Safety`, `#Data Privacy`, `#Web Development`
 
 ---
